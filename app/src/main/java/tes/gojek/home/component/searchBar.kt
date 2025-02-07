@@ -78,7 +78,7 @@ fun SearchField(modifier: Modifier = Modifier) {
             disabledIndicatorColor = Color.Transparent,
             focusedContainerColor = white,
             unfocusedContainerColor = white,
-            cursorColor = Color.Black
+            cursorColor = placeholder
         )
     )
 }
