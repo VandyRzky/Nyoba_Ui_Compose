@@ -3,7 +3,6 @@ package tes.gojek
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -11,15 +10,16 @@ import tes.gojek.chat.chatMain
 import tes.gojek.home.homeMain
 import tes.gojek.orders.ordersMain
 import tes.gojek.promos.promosMain
+import tes.gojek.splash.SplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
         setContent {
             val navController = rememberNavController()
 
-            NavHost(navController = navController, startDestination = "home"){
+            NavHost(navController = navController, startDestination = "splash"){
+                composable("splash") { SplashScreen(navController) }
                 composable("home") { homeMain(navController) }
                 composable("order") { ordersMain(navController) }
                 composable("promo") { promosMain(navController) }
