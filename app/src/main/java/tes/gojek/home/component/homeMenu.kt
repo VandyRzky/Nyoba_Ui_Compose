@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -60,22 +61,25 @@ fun MenuGroup(modifier: Modifier = Modifier) {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
         ){
-            MenuButton(image = R.drawable.image38, text = "GoRide")
-            MenuButton(image = R.drawable.image39, text = "GoCar")
-            MenuButton(image = R.drawable.image40, text = "GoFood")
-            MenuButton(image = R.drawable.image41, text = "GoSend")
-        }
-        Row (
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ){
-            MenuButton(image = R.drawable.image38, text = "GoMart")
-            MenuButton(image = R.drawable.image39, text = "GoTransit")
-            MenuButton(image = R.drawable.image40, text = "GoTagihan")
-            MenuButton(image = R.drawable.image41, text = "More")
+            MenuColumn(image1 = R.drawable.image38, text1 = "GoRide", image2 = R.drawable.image42, text2 = "GoMart")
+            MenuColumn(image1 = R.drawable.image38, text1 = "GoRide", image2 = R.drawable.image42, text2 = "GoMart")
+            MenuColumn(image1 = R.drawable.image38, text1 = "GoRide", image2 = R.drawable.image42, text2 = "GoMart")
+            MenuColumn(image1 = R.drawable.image38, text1 = "GoRide", image2 = R.drawable.image42, text2 = "GoMart")
+
         }
 
+    }
+}
+
+@Composable
+fun MenuColumn(modifier: Modifier = Modifier, image1: Int, text1: String, image2: Int, text2: String) {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(5.dp)
+    ){
+        MenuButton(image = image1, text = text1)
+        Spacer(modifier = Modifier.size(5.dp))
+        MenuButton(image = image2, text = text2)
     }
 }
 
